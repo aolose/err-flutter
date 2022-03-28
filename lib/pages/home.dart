@@ -2,6 +2,8 @@
 import 'package:err/components/article/list.dart';
 import 'package:flutter/material.dart';
 
+import '../components/bird.dart';
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
   final String title;
@@ -16,9 +18,12 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: const Center(
-        child: ArtList(),
-      ),
+      body: Column(
+        children: const [
+
+          AniBird(),
+        ],
+      )
     );
   }
 }
