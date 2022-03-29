@@ -1,7 +1,7 @@
 import 'dart:ui' as ui;
 
-import 'package:err/components/bird/CustomCanvas.dart';
 import 'package:flutter/material.dart';
+import 'canvas.dart';
 
 class Wing extends StatelessWidget {
   final double width;
@@ -22,7 +22,7 @@ class Wing extends StatelessWidget {
                 [const Color(0xff3d7aa5), const Color(0xff424d67)]);
           Path path = Path()
             ..moveTo(0, 0)
-            ..lineTo(width,0)
+            ..lineTo(width, 0)
             ..lineTo(width, width)
             ..close();
           canvas.drawPath(path, paint);

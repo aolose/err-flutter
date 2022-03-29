@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import 'CustomCanvas.dart';
+import 'canvas.dart';
 
 class BirdFoot extends StatelessWidget {
   final double height;

@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'CustomCanvas.dart';
+import 'canvas.dart';
 
 class Mouse extends StatelessWidget {
   final double width;
@@ -27,7 +27,8 @@ class Mouse extends StatelessWidget {
             ..lineTo(0, h)
             ..close();
           canvas.drawPath(path, paint);
-        }, height: width * 0.7,
+        },
+        height: width * 0.7,
       ),
     );
   }
