@@ -1,7 +1,18 @@
-import '../model.dart';
 
-const String BASE_API = 'https://api';
+import '../model/api.dart';
 
-final ApiCfg apiConfig = {
-  'arts': ApiOption('listArt'),
+const String baseApi = 'https://api.err.name/';
+
+final ApiCfgMap apiConfig = {
+  'arts': ApiCfg('posts', before: (ApiData d) {
+    var data = d.params as Map;
+    d.url = '${d.url}/${data.remove('page')}';
+  }),
+  'art': ApiCfg(
+    'post',
+    before: (ApiData d) {
+      d.url = '${d.url}/${d.params}';
+      d.params = null;
+    },
+  ),
 };

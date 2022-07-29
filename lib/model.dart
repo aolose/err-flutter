@@ -1,4 +1,4 @@
-import 'package:err/api/config.dart';
+import '/api/config.dart';
 import 'dart:convert';
 
 class Article {
@@ -81,7 +81,7 @@ class ApiCli {
   late ApiOption? _cfg;
 
   ApiCli(this.name) {
-    _cfg = apiConfig[name]!;
+    _cfg = apiConfig[name]! as ApiOption?;
     assert(_cfg != null);
   }
 

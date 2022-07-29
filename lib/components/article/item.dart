@@ -1,22 +1,32 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
+import '/model/article.dart';
+import '/pages/article.dart';
 
 class ArtItem extends StatelessWidget {
-  final String text;
+  final ListArticle art;
 
-  const ArtItem(this.text, {Key? key}) : super(key: key);
+  const ArtItem(this.art, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      child: Text(
-        text,
-        style: const TextStyle(fontSize: 40.0, color: Color(0xFFFFFFFF)),
+    return GestureDetector(
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context){
+          return ArticlePage(art.url);
+        }));
+      },
+      child: Container(
+        margin: const EdgeInsets.all(5),
+        padding: const EdgeInsets.all(5),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(6),
+            border: Border.all(color: const Color(0x33333300),width: 1)
+        ),
+        child: Column(children: [
+          Text(art.title),
+          Text(art.content)
+        ],),
       ),
-      margin: const EdgeInsets.all(5.0 ),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5.0),
-          color: const Color.fromRGBO(99, 99, 99, 1.0)),
     );
   }
 }
