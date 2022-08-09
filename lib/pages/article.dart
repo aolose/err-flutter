@@ -37,7 +37,6 @@ class _ArticleState extends State<ArticlePage> {
     var size = MediaQuery.of(context).size;
     return Container(
       key: key,
-      color: const Color(0xffffffff),
       child: CustomScrollView(
         slivers: [
           SliverAppBar(
@@ -56,9 +55,9 @@ class _ArticleState extends State<ArticlePage> {
                   article.title,
                   style: const TextStyle(shadows: [
                     Shadow(
-                      offset: Offset(5.0, 5.0),
-                      blurRadius: 3.0,
-                      color: Color.fromARGB(0, 0, 0, 0),
+                      offset: Offset(1.0, 1.0),
+                      blurRadius: 10.0,
+                      color: Color.fromARGB(80, 0, 0, 0),
                     )
                   ], color: Colors.white),
                 ),
@@ -75,9 +74,10 @@ class _ArticleState extends State<ArticlePage> {
                   child: Text(
                     article.content,
                     style: const TextStyle(
-                      fontSize: 13,
+                      fontSize: 14,
+                      height: 2,
                       decoration: TextDecoration.none,
-                      color: Color(0xff555555),
+                      color: Colors.white60,
                     ),
                   ),
                 ),

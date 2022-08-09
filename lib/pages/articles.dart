@@ -64,17 +64,19 @@ class _ArticleListState extends State {
 
   @override
   Widget build(BuildContext context) {
-    return RefreshIndicator(
-        key: _refreshKey,
-        triggerMode: RefreshIndicatorTriggerMode.anywhere,
-        child: ListView(
-            controller: scrollCtrl,
-            children: List<ArtItem>.generate(
-                items.length, (index) => ArtItem(items[index],key: Key('$index artItem'),))),
-        onRefresh: () async {
-          await load();
-          print(111);
-          return Future.delayed(const Duration(seconds: 3));
-        });
+    return Container(
+      child: RefreshIndicator(
+          key: _refreshKey,
+          triggerMode: RefreshIndicatorTriggerMode.anywhere,
+          child: ListView(
+              controller: scrollCtrl,
+              children: List<ArtItem>.generate(
+                  items.length, (index) => ArtItem(items[index],key: Key('$index artItem'),index: index,))),
+          onRefresh: () async {
+            await load();
+            print(111);
+            return Future.delayed(const Duration(seconds: 3));
+          }),
+    );
   }
 }
